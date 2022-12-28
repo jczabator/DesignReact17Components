@@ -1,14 +1,16 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { useContext } from "react";
 
 import { ThemeContext, ThemeProvider } from "../contexts/ThemeContext";
 
 function Layout({ startingTheme, children }) {
-  <ThemeProvider startingTheme={startingTheme}>
-    <LayoutNoThemeProvider>{children}</LayoutNoThemeProvider>
-  </ThemeProvider>;
+  return (
+    <ThemeProvider startingTheme={startingTheme}>
+      <LayoutNoThemeProvider>{children}</LayoutNoThemeProvider>
+    </ThemeProvider>
+  );
 }
 
-function LayoutNoThemeProvider({ startingTheme, children }) {
+function LayoutNoThemeProvider({ children }) {
   const { theme } = useContext(ThemeContext);
 
   return (
